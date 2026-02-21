@@ -10,7 +10,7 @@
 
 ## Status
 
-> 🚧 In active development — not yet production ready
+> ✅ Live at [yarnmath.fly.dev](https://yarnmath.fly.dev) — 7/7 e2e scenarios passing
 
 | Feature | Status | Notes |
 |---------|--------|-------|
@@ -20,7 +20,7 @@
 | Cross-weight warning & yarn reference | ✅ Complete | CYC weight categories, reference modal |
 | Analytics | ✅ Complete | Plausible (privacy-first, no cookies) |
 | Ship check & pre-launch verification | ✅ Complete | 88% mutation score, CI green |
-| Deploy to Fly.io | 📋 Planned | |
+| Deploy to Fly.io + e2e verification | ✅ Complete | nginx Docker deploy, all 7 e2e pass |
 
 ## What It Solves
 
@@ -80,15 +80,17 @@ The app builds to a static `dist/` folder and can be deployed anywhere that serv
 
 ### Fly.io
 
+The repo includes `Dockerfile`, `nginx.conf`, and `fly.toml` for Fly.io deployment. The Dockerfile does a multi-stage build (Node → nginx) and serves the static assets on port 8080.
+
 ```bash
 # First-time setup (requires flyctl installed and logged in)
-fly launch
+fly launch --no-deploy --copy-config --yes
 
 # Deploy
-fly deploy
+fly deploy --remote-only
 ```
 
-The app uses Vite's static build — no server-side runtime required. On Fly.io configure the app to serve the `dist/` folder (e.g. via nginx or a lightweight static file server).
+The app auto-stops machines when idle (zero minimum machines) for cost control.
 
 ### Other hosts
 
