@@ -23,6 +23,15 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Stryker mutation testing output
+.stryker-tmp
+reports/mutation
+
 # Test coverage
 coverage
 
