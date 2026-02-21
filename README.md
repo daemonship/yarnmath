@@ -21,8 +21,8 @@ Hand-knitters and crocheters who follow digital patterns, especially those subst
 |------|--------|-------------|
 | Task 1 | ✅ Complete | Initialize repo structure and CI skeleton |
 | Task 2 | ✅ Complete | Yardage calculator logic and unit conversion |
-| Task 3 | 🔄 Pending | Calculator form UI and results display |
-| Task 4 | 🔄 Pending | Cross-weight warning, yarn weight reference, and analytics |
+| Task 3 | ✅ Complete | Calculator form UI and results display |
+| Task 4 | ✅ Complete | Cross-weight warning, yarn weight reference, and analytics |
 | Task 5 | 🔄 Pending | Code review |
 | Task 6 | 🔄 Pending | Pre-launch verification |
 | Task 7 | 🔄 Pending | Deploy and verify |
