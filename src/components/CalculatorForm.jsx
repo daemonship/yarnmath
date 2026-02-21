@@ -19,10 +19,10 @@ function yardsToDisplay(yards, isMetric) {
   const yardsNum = parseFloat(yards);
   if (isMetric) {
     const meters = convertUnits(yardsNum, 'yards', 'meters');
-    if (meters instanceof Error) return yardsNum.toFixed(1);
-    return meters.toFixed(1);
+    if (meters instanceof Error) return String(Math.round(yardsNum));
+    return String(Math.round(meters));
   }
-  return yardsNum.toFixed(1);
+  return String(Math.round(yardsNum));
 }
 
 // Helper: parse display value back to yards
@@ -113,7 +113,7 @@ export default function CalculatorForm() {
     if (!substituteYardageYards.trim()) {
       newErrors.substituteYardage = 'Skein yardage is required';
     } else if (isNaN(substituteYardageNum) || substituteYardageNum <= 0) {
-      newErrors.substituteYardage = 'Skein yardage must be greater than 0';
+      newErrors.substituteYardage = 'Skein yardage cannot be zero or negative';
     }
     
     // Optional gauge validation
