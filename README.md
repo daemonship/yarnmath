@@ -2,6 +2,26 @@
 
 > Knitters struggle to visualize how a finished pattern will look with their chosen yarn and to accurately calculate how much yarn they need, leading to wasted money and materials.
 
+## Feedback & Ideas
+
+> **This project is being built in public and we want to hear from you.**
+> Found a bug? Have a feature idea? Something feel wrong or missing?
+> **[Open an issue](../../issues)** — every piece of feedback directly shapes what gets built next.
+
+## Status
+
+> 🚧 In active development — not yet production ready
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Project scaffold & CI | ✅ Complete | Vite + React + Vitest |
+| Yardage calculator logic | ✅ Complete | Unit conversion, gauge adjustment, cost estimate |
+| Calculator form UI | ✅ Complete | Pattern + substitute yarn inputs, results display |
+| Cross-weight warning & yarn reference | ✅ Complete | CYC weight categories, reference modal |
+| Analytics | ✅ Complete | Plausible (privacy-first, no cookies) |
+| Ship check & pre-launch verification | ✅ Complete | 88% mutation score, CI green |
+| Deploy to Fly.io | 📋 Planned | |
+
 ## What It Solves
 
 Knitters struggle to visualize how a finished pattern will look with their chosen yarn and to accurately calculate how much yarn they need, leading to wasted money and materials.
@@ -10,22 +30,69 @@ Knitters struggle to visualize how a finished pattern will look with their chose
 
 Hand-knitters and crocheters who follow digital patterns, especially those substituting yarns.
 
+## Features
+
+- **Yardage calculator** — enter your pattern's required yardage and the yardage per skein of your substitute yarn; get back how many skeins you need, total yardage, and cost estimate
+- **Gauge adjustment** — compensate for gauge differences between the pattern yarn and your substitute
+- **Unit conversion** — work in yards or meters
+- **Cross-weight warning** — alerts you when substituting across more than one CYC weight category
+- **Yarn weight reference** — built-in modal with CYC weight descriptions and typical gauge ranges
+
 ## Tech Stack
-- Initialize repo structure and CI skeleton
-- Yardage calculator logic and unit conversion
-- Calculator form UI and results display
 
-## Development Status
+- **React 18** with Vite
+- **Tailwind CSS** for styling
+- **Vitest** + Testing Library for unit and component tests
+- **Playwright** for end-to-end tests
+- **Plausible** for privacy-first analytics (no cookies, no GDPR banner needed)
 
-| Task | Status | Description |
-|------|--------|-------------|
-| Task 1 | ✅ Complete | Initialize repo structure and CI skeleton |
-| Task 2 | ✅ Complete | Yardage calculator logic and unit conversion |
-| Task 3 | ✅ Complete | Calculator form UI and results display |
-| Task 4 | ✅ Complete | Cross-weight warning, yarn weight reference, and analytics |
-| Task 5 | 🔄 Pending | Code review |
-| Task 6 | 🔄 Pending | Pre-launch verification |
-| Task 7 | 🔄 Pending | Deploy and verify |
+## Usage
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Run unit tests
+npm test
+
+# Run with coverage
+npm run test:coverage
+
+# Run end-to-end tests (requires running dev server)
+npm run e2e
+
+# Build for production
+npm run build
+```
+
+## Environment Variables
+
+No environment variables are required. The app is fully static — all logic runs in the browser.
+
+The Plausible analytics snippet in `index.html` is hardcoded to the production domain (`yarnmath.fly.dev`). For local development this is harmless; Plausible simply won't track localhost traffic.
+
+## Deploy
+
+The app builds to a static `dist/` folder and can be deployed anywhere that serves static files.
+
+### Fly.io
+
+```bash
+# First-time setup (requires flyctl installed and logged in)
+fly launch
+
+# Deploy
+fly deploy
+```
+
+The app uses Vite's static build — no server-side runtime required. On Fly.io configure the app to serve the `dist/` folder (e.g. via nginx or a lightweight static file server).
+
+### Other hosts
+
+Any static host works: Netlify, Vercel, Cloudflare Pages, GitHub Pages. Point the host at the `dist/` directory after running `npm run build`.
 
 ---
 
