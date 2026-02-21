@@ -15,6 +15,18 @@ Hand-knitters and crocheters who follow digital patterns, especially those subst
 - Yardage calculator logic and unit conversion
 - Calculator form UI and results display
 
+## Development Status
+
+| Task | Status | Description |
+|------|--------|-------------|
+| Task 1 | ✅ Complete | Initialize repo structure and CI skeleton |
+| Task 2 | ✅ Complete | Yardage calculator logic and unit conversion |
+| Task 3 | 🔄 Pending | Calculator form UI and results display |
+| Task 4 | 🔄 Pending | Cross-weight warning, yarn weight reference, and analytics |
+| Task 5 | 🔄 Pending | Code review |
+| Task 6 | 🔄 Pending | Pre-launch verification |
+| Task 7 | 🔄 Pending | Deploy and verify |
+
 ---
 
 *Built by [DaemonShip](https://github.com/daemonship) — autonomous venture studio*
